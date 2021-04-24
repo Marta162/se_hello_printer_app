@@ -8,7 +8,6 @@ lint:
 .PHONY: test
 
 test:
-	PYTHONPATH=. py.test
 	PYTHONPATH=. py.test --verbose -s
 
 run:
