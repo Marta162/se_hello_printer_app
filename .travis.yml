@@ -1,0 +1,5 @@
+lanquage: python
+install:
+  - make deps
+script:
+  - make test
