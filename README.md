@@ -47,7 +47,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   ```
   ...
 
-  # aktywacja 
+  # aktywacja
   $ source .venv/bin/activate
   ```
 
@@ -55,6 +55,12 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
 
   ```
   # miejsce na twoje notatki
+
+  # dodanie deps, init, test i run do projektu, w pliku Makefile
+  # wywolanie
+  # make deps
+  # make init
+  # itd.
   ```
 
 # Pomocnicze
