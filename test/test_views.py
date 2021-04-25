@@ -13,6 +13,11 @@ class FlaskrTestCase(unittest.TestCase):
         s = str(rv.data)
         ','.join(SUPPORTED) in s
 
+    def test_msg_with_output1(self):
+        rv = self.app.get('/?output=xml')
+        self.assertEqual(b'<greetings>\n\t<name>' + imie + '</name> \n\t<msg>' +
+               msg + '</msg> \n</greetings>\n', rv.data)
+
     def test_msg_with_output(self):
         rv = self.app.get('/?output=json')
         self.assertEqual(b'{ "imie":"Marta", "mgs":Hello World!"}', rv.data)
