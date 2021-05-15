@@ -32,7 +32,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
 
 - Uruchamianie testów (see: http://doc.pytest.org/en/latest/capture.html):
 
-  ```
+  # bez makefile
   $ PYTHONPATH=. py.test
   $ PYTHONPATH=. py.test --verbose -s
   ```
@@ -53,6 +53,18 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
 
 - Integracja z TravisCI:
 
+#dodaj plik .travis.yml :
+
+'''
+language: python
+python:
+    -"3.6"
+  install:
+    -make deps
+  script:
+    -make test
+'''
+
   ```
   # miejsce na twoje notatki
 
@@ -60,7 +72,8 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   # wywolanie
   # make deps
   # make init
-  # itd.
+  # make run
+  # make test
   ```
 
 # Pomocnicze
@@ -68,6 +81,33 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
 ## Ubuntu
 
 - Instalacja dockera: [dockerce howto](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
+'''Dockerfile :
+
+FROM python:3
+ARG APP_DIR=/usr/src/hello_world_printer
+WORKDIR /tmp
+ADD requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
+RUN mkdir -p $APP_DIR
+ADD hello_world/ $APP_DIR/hello_world/
+ADD main.py $APP_DIR
+CMD PYTHONPATH=$PYTHONPATH:/usr/src/hello_world_printer \FLASK_APP=hello_world flask run --host=0.0.0.0
+'''
+
+komendy dockera w konsoli :
+
+$ make docker_build
+$ docker images# aby zobaczyć zbudowany obraz dockera
+
+dopisz komendy Dockera w makefile:
+
+'''
+docker_run: docker_build
+    docker run \
+      --name hello-world-printer-dev \
+        -p 5000:5000 \
+        -d hello-world-printer
 
 ## Centos
 
