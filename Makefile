@@ -14,7 +14,14 @@ run:
 	python3 main.py
 
 docker_build:
-	 docker build -t hello-world-printer .
+	docker build -t hello-world-printer .
+
+test_smoke:
+	curl --fail 127.0.0.1:5000
+
+test_smokehttp:
+	curl -s -o /dev/null -w "%{http_code}" --fail 127.0.0.1:5000
+
 
 docker_run: docker_build
 	docker run \
@@ -30,4 +37,3 @@ docker_push: docker_build
 	docker tag hello-world-printer $(TAG); \
 	docker push $(TAG); \
 	docker logout;
-	
