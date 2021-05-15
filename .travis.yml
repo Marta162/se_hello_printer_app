@@ -9,3 +9,7 @@ script:
   - make docker_push
 services:
   - docker
+deploy:
+    provider: heroku
+    app: powerful-crag-91078
+    api_key: ${HEROKU_API_KEY}
