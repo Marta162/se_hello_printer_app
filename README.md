@@ -5,7 +5,7 @@
 
 [![Build Status](https://travis-ci.com/Marta162/se_hello_printer_app.svg?branch=master)](https://travis-ci.com/Marta162/se_hello_printer_app)
 
-![StatusCake](https://app.statuscake.com/button/index.php?Track=5961411&Days=1&Design=2)
+[![StatusCake](https://app.statuscake.com/button/index.php?Track=5961411&Days=1&Design=2)](https://app.statuscake.com/UptimeStatus.php?tid=5961411)
 
 Aplikacja Dydaktyczna wyświetlająca imię i wiadomość w różnych formatach dla zajęć
 o Continuous Integration, Continuous Delivery i Continuous Deployment.
